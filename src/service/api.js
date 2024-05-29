@@ -9,10 +9,11 @@ const api = axios.create({
 api.interceptors.request.use(
     async (config) => {
       const token = Cookies.get('token');  // Read the token from cookies
-      console.log('my token: ',token)
-      if (token) {
-        config.headers['Authorization'] = `Bearer ${token}`;
+      if (!token) {
+          localStorage.getItem("token")
       }
+      console.log('my token: ',token)
+      config.headers['Authorization'] = `Bearer ${token}`;  
       return config;
     },
     (error) => {
