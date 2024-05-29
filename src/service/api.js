@@ -10,7 +10,7 @@ api.interceptors.request.use(
     async (config) => {
       const token = Cookies.get('token');  // Read the token from cookies
       if (!token) {
-          localStorage.getItem("token")
+          token = localStorage.getItem("token")
       }
       console.log('my token: ',token)
       config.headers['Authorization'] = `Bearer ${token}`;  
