@@ -9,7 +9,7 @@ function QueryView(){
     const {id} = useParams()
 
     async function fecthResult(){
-        const res = await api.get(`/query/${id}/`)
+        const res = await api.get(`/query/${id}`)
         setResult(res.data)
     }
 
