@@ -2,7 +2,8 @@ import axios from "axios"
 import Cookies from 'js-cookie'
 
 const api = axios.create({
-    baseURL:'https://pdrmottas-afabd-ts02.hf.space'
+    baseURL:'https://pdrmottas-afabd-ts02.hf.space',
+    withCredentials: true
 })
 
 api.interceptors.request.use(
