@@ -17,7 +17,10 @@ function LoginView(){
         form.append('username',username)
         form.append('password',password)
         api.post('/session/',form)
-        .then(()=>navigate('/home'))
+        .then((res)=>{
+            localStorage.setItem("token", res.data.access_token);
+            navigate('/home')
+        })
         .catch(err=>{
             console.error(err)
             alert("Credentials not authorized, try again later")
