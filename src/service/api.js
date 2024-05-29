@@ -8,7 +8,7 @@ const api = axios.create({
 
 api.interceptors.request.use(
     async (config) => {
-      const token = Cookies.get('token');  // Read the token from cookies
+      var token = Cookies.get('token');  // Read the token from cookies
       if (!token) {
           token = localStorage.getItem("token")
       }
